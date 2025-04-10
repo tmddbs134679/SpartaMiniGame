@@ -10,7 +10,7 @@ namespace Game
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
-
+       
 
         public LobbyPlayer player;
         [SerializeField] private CastleData targetCastleData;
