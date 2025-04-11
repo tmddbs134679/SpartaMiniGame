@@ -19,6 +19,7 @@ public enum RESULT
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
+    public StageResultEventChannel eventChannel;
 
     [Header("UI Setting")]
     public GameObject GameUI;
@@ -42,6 +43,17 @@ public class UIManager : MonoBehaviour
         else 
             Destroy(gameObject);
     }
+
+    private void OnEnable()
+    {
+        eventChannel.OnGameResult += ShowGameUI;
+    }
+
+    private void OnDisable()
+    {
+        eventChannel.OnGameResult -= ShowGameUI;
+    }
+
 
     private void Start()
     {
@@ -81,7 +93,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowEndingUI()
     {
-        EndingUI.SetActive(true);
+        Instantiate(EndingUI, new Vector2(0, 0), Quaternion.identity);
     }
 
     public void SetButtonState(UITYPE type)

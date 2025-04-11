@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Rain"))
         {
-            SoundManager.instance.PlayOneShot(SoundType.Player, clip);
+           // SoundManager.instance.PlayOneShot(SoundType.Player, clip);
         }
     }
 }

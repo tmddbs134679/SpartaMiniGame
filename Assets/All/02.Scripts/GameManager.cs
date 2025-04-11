@@ -10,8 +10,9 @@ namespace Game
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
-       
 
+
+        public StageResultEventChannel eventChannel;
         public LobbyPlayer player;
         [SerializeField] private CastleData targetCastleData;
 
@@ -59,7 +60,6 @@ namespace Game
             if (StageManager.instance.IsAllStageCleared() && player.currentStage == 0)
             {
                 UIManager.instance.ShowEndingUI();
-
             }
             else if (player.currentStage == 0)
             {

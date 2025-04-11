@@ -12,11 +12,26 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
 
+    [Header("Audio Events")]
+    [SerializeField] private StageResultEventChannel eventChannel;
+    [SerializeField] private PlayerEventChannel playereventChannel;
     [Header("Audio Sources")]
+    [SerializeField] private GameAudioClips clips;
     [SerializeField] private AudioSource bgmSource;  
     [SerializeField] private AudioSource playerSource;
-    [SerializeField] private AudioSource etcSource; 
+    [SerializeField] private AudioSource etcSource;
+    private void OnEnable()
+    {
+        eventChannel.OnGameResult += HandleGameResultPlay;
+        playereventChannel.OnPlayerEvent += HandlePlayer;
 
+    }
+
+    private void OnDisable()
+    {
+        eventChannel.OnGameResult -= HandleGameResultPlay;
+        playereventChannel.OnPlayerEvent -= HandlePlayer;
+    }
 
     private void Awake()
     {
@@ -32,12 +47,12 @@ public class SoundManager : MonoBehaviour
        
     }
 
-
     public void PlayLoop(SoundType type, AudioClip clip)
     {
-        AudioSource source = GetSource(type);
+        AudioSource source = GetSourceType(type);
 
-        if (source.isPlaying && source.clip == clip) return;
+        if (source.isPlaying && source.clip == clip) 
+            return;
 
         source.clip = clip;
         source.loop = true;
@@ -45,30 +60,43 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    public void PlayOneShot(SoundType type, AudioClip clip)
-    {
-        AudioSource source = GetSource(type);
-        if (clip != null)
-            source.PlayOneShot(clip);
-    }
-
-
     public void StopLoop(SoundType type)
     {
-        AudioSource source = GetSource(type);
+        AudioSource source = GetSourceType(type);
         if (source.isPlaying)
             source.Stop();
     }
 
-   
-    private AudioSource GetSource(SoundType type)
+
+    public void ButtonPlay()
+    {
+        etcSource.PlayOneShot(clips.buttonClick);
+    }
+
+
+    private AudioSource GetSourceType(SoundType type)
     {
         return type switch
         {
             SoundType.BGM => bgmSource,
             SoundType.Player => playerSource,
             SoundType.ETC => etcSource,
-            _ => null
+            _ => throw new System.ArgumentException("Invalid SoundType: " + type)
         };
     }
+
+
+    #region Events
+    public void HandleGameResultPlay(RESULT result)
+    {
+        etcSource.PlayOneShot(clips.stageClearClip);
+    }
+
+    public void HandlePlayer(bool toggle)
+    {
+        playerSource.PlayOneShot(toggle ? clips.boxCrushClips[0] : clips.boxCrushClips[1]);
+
+    }
+
+    #endregion
 }

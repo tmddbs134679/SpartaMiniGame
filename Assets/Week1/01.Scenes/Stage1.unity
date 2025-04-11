@@ -382,6 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587705548}
   - component: {fileID: 587705547}
+  - component: {fileID: 587705549}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -401,8 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee05acdd105a06c46b7fc551e915b21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageResultEventChannel: {fileID: 11400000, guid: 87b00546945c37a4498d0d25c9fc0a14, type: 2}
   totalScore: 0
-  EndPanel: {fileID: 4074209895822862585}
   totalScoreTxt: {fileID: 326927603}
   timeTxt: {fileID: 1267437007}
   titleTxt: {fileID: 312950345341433567}
@@ -424,6 +425,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &587705549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587705546}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5398e28f7b5f945810e31dad92a8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageResultEventChannel: {fileID: 11400000, guid: 87b00546945c37a4498d0d25c9fc0a14, type: 2}
+  clearClip: {fileID: 0}
 --- !u!1 &924342825
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,12 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class RetryButton : MonoBehaviour
 {
-
-    public AudioClip ac;
-
   public void Retry()
   {
-        SoundManager.instance.PlayOneShot(SoundType.ETC, ac);
+        SoundManager.instance.ButtonPlay();
 
         string sceneName = Game.GameManager.instance.GetStageSceneName();
 
@@ -22,7 +19,7 @@ public class RetryButton : MonoBehaviour
 
     public void Robby()
     {
-        SoundManager.instance.PlayOneShot(SoundType.ETC, ac);
+        SoundManager.instance.ButtonPlay();
 
         SceneManager.LoadScene("LobbyScene");
     }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a0cc27f3b68ac3418e241dd56ba79b5, type: 3}
-  m_Name: Stage1
+  m_Name: Stage3
   m_EditorClassIdentifier: 
-  stage: 1
-  gameTitle: "\uBE57\uBB3C\uBC1B\uB294 \uB974\uD0C4\uC774"
+  stage: 3
+  gameTitle: "\uB974\uD0C4\uC774 \uAC00\uAC8C \uC9C0\uD0A4\uAE30"
   isOpen: 1
-  isClear: 0
-  sceneName: Stage1
+  isClear: 1
+  sceneName: Stage3

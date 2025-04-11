@@ -10,7 +10,7 @@ public class Obj : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Stage"))
         {
-            SoundManager.instance.PlayOneShot(SoundType.ETC,Ac);
+           // SoundManager.instance.PlayOneShot(SoundType.ETC,Ac);
         }
     }
 }

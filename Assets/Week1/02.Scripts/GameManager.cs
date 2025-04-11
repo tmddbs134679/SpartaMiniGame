@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public StageResultEventChannel stageResultEventChannel;
+
     [SerializeField]private int totalScore;
-
-
 
     public Text totalScoreTxt;
     public Text timeTxt;
@@ -19,14 +20,15 @@ public class GameManager : MonoBehaviour
     float totalTime = 30.0f;
 
     public AudioClip Clearclip;
-    public bool isGameClear = false;
-
+    public bool isGame = false;
 
     private void Awake()
     {
         Instance = this;    
         Time.timeScale= 1.0f;
     }
+
+
     public GameObject Rain;
     // Start is called before the first frame update
     void Start()
@@ -43,22 +45,28 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            totalTime = 0;
-            titleTxt.text = "실패ㅠㅠ";
-            UIManager.instance.ShowGameUI(RESULT.Fail);
+            if(!isGame)
+            {
+                totalTime = 0;
+                stageResultEventChannel.Raise(RESULT.Fail);
 
-            Time.timeScale = 0;
+                Time.timeScale = 0;
+                isGame = true;
+            }    
+  
         }
 
-        if(totalScore >= 20 && !isGameClear)
+        if(totalScore >= 20 && !isGame)
         {
           
             Time.timeScale = 0;
-            titleTxt.text = "성공!!";
-            SoundManager.instance.PlayOneShot(SoundType.ETC, Clearclip);
+
             Game.GameManager.instance.OnStageClear();
-            UIManager.instance.ShowGameUI(RESULT.Success);
-            isGameClear = true;
+            stageResultEventChannel.Raise(RESULT.Success);
+
+
+
+            isGame = true;
         }
 
         timeTxt.text = totalTime.ToString("F2");

@@ -387,17 +387,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7076229326147021004, guid: cb32609c619db804886e789aca1f1bd4, type: 3}
   m_PrefabInstance: {fileID: 433405511}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &433405513 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1528171100183264546, guid: cb32609c619db804886e789aca1f1bd4, type: 3}
-  m_PrefabInstance: {fileID: 433405511}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &637422725
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,9 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d356a885f663e4eae6b93142167776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 04046c2e600f3344b9d05f59a5b3f2a5, type: 3}
-  - {fileID: 8300000, guid: c1e4e03541023f74184551cd9622c595, type: 3}
+  playerEvent: {fileID: 11400000, guid: dd92b8be73124d94386c68d97b68ca24, type: 2}
   toggle: 0
 --- !u!58 &1703998298
 CircleCollider2D:
@@ -873,8 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed68f09d3888504db513dce077c6696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndPanel: {fileID: 1465791646}
-  title: {fileID: 433405513}
+  stageResultEventChannel: {fileID: 11400000, guid: 87b00546945c37a4498d0d25c9fc0a14, type: 2}
   isPlay: 0
   isGameClear: 0
   anim: {fileID: 637422728}

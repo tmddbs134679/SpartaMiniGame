@@ -102,7 +102,7 @@ public class Cat : MonoBehaviour
                 {
                     if(!isFull)
                     {
-                        SoundManager.instance.PlayOneShot(SoundType.ETC, Ac);
+                       // SoundManager.instance.PlayOneShot(SoundType.ETC, Ac);
                         isFull = true;
                         hungrycat.SetActive(false);
                         fullCat.SetActive(true);

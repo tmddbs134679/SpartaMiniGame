@@ -4,30 +4,27 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
+enum CATTYPE
+{
+    NORMAL,
+    FAT,
+    PIRCATE
+}
+
 namespace cat
 {
     public class GameManager : MonoBehaviour
     {
-
+        public StageResultEventChannel stageResultEventChannel;
         public static GameManager instance;
 
-        public GameObject normalCat;
-        public GameObject fatCat;
-        public GameObject PircateCat;
-
-        public GameObject EndPanel;
+        public GameObject[] cats;
 
         private bool isGameClear = false;
-        public Text title;
         int score;
         int level;
-
         private bool isPlay = true;
-
-        public AudioClip clearAc;
-
         public RectTransform levelbar;
-
         public Text levelTxt;
 
 
@@ -51,6 +48,7 @@ namespace cat
             if (level >= 6 && isPlay && !isGameClear) 
             {
                 isGameClear = true;
+                stageResultEventChannel?.OnGameResult(RESULT.Success);
                 GameEnd();
             }
         }
@@ -58,15 +56,15 @@ namespace cat
 
         void MakeCat()
         {
-          
-                Instantiate(normalCat);
+
+                Instantiate(cats[(int)CATTYPE.NORMAL]);
 
                 if (level == 1)
                 {
                     int p = Random.Range(0, 10);
 
                     if (p < 2)
-                        Instantiate(normalCat);
+                        Instantiate(cats[(int)CATTYPE.NORMAL]);
 
                 }
                 else if (level == 2)
@@ -74,15 +72,15 @@ namespace cat
                     int p = Random.Range(0, 10);
 
                     if (p < 5)
-                        Instantiate(normalCat);
+                        Instantiate(cats[(int)CATTYPE.NORMAL]);
                 }
                 else if (level == 3)
                 {
-                    Instantiate(fatCat);
+                    Instantiate(cats[(int)CATTYPE.FAT]);
                 }
                 else if (level == 4)
                 {
-                    Instantiate(PircateCat);
+                    Instantiate(cats[(int)CATTYPE.PIRCATE]);
                 }
  
 
@@ -90,25 +88,19 @@ namespace cat
 
         public void GameEnd()
         {
-      
-            SoundManager.instance.StopLoop(SoundType.Player);
-            SoundManager.instance.PlayOneShot(SoundType.ETC, clearAc);
-
             Time.timeScale = 0;
-            title.text = "성공!!";
-            EndPanel.SetActive(true);
+            SoundManager.instance.StopLoop(SoundType.Player);
             Game.GameManager.instance.OnStageClear();
             isPlay = false; 
         }
 
         public void Gameover()
         {
-            if(isPlay )
+            if(isPlay)
             {
-      
+                SoundManager.instance.StopLoop(SoundType.Player);
+                stageResultEventChannel?.OnGameResult(RESULT.Fail);
                 Time.timeScale = 0;
-                title.text = "실패ㅠㅠ";
-                EndPanel.SetActive(true);
             }
         
 

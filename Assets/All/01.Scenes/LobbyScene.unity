@@ -4746,12 +4746,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1def266b6f9177d48a18260092dd74fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 87b00546945c37a4498d0d25c9fc0a14, type: 2}
   GameUI: {fileID: 9016423277298001050, guid: a7a45baaa9c9ebd449ecc78bb4ab21bd, type: 3}
   EndingUI: {fileID: 7152557156523746807, guid: 57d9aaf8b060c264cb5599d7dae35881, type: 3}
+  title: {fileID: 0}
   lobbyBtn: {fileID: 0}
   retryBtn: {fileID: 0}
   startBtn: {fileID: 0}
-  canelBtn: {fileID: 0}
+  cancleBtn: {fileID: 0}
 --- !u!1 &1036182805
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,6 +5119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45726e8c54473b4cb37c60b63e76cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 87b00546945c37a4498d0d25c9fc0a14, type: 2}
   player: {fileID: 0}
   targetCastleData: {fileID: 0}
   lobbydata: {fileID: 11400000, guid: 69b6a5e42ae08d840b2407fbc40daf78, type: 2}

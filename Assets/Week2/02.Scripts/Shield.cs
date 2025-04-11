@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    public AudioClip[] clips;
+    public PlayerEventChannel playerEvent;
     public bool toggle;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -24,17 +23,12 @@ public class Shield : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Box"))
         {
-            if(toggle)
-            {
-                SoundManager.instance.PlayOneShot(SoundType.Player, clips[0]);
-            }
-            else
-            {
-                SoundManager.instance.PlayOneShot(SoundType.Player, clips[1]);
-            }
-
+            playerEvent?.Raise(toggle);
             toggle = !toggle;
         }
     }
+
+ 
+
 
 }

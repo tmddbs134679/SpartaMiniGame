@@ -5,12 +5,12 @@ using UnityEngine;
 public class Dog : MonoBehaviour
 {
     public GameObject food;
-    public AudioClip Ac;
+   // public AudioClip Ac;
 
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager.instance.PlayLoop(SoundType.Player, Ac);
+        //SoundManager.instance.PlayLoop(SoundType.Player, Ac);
 
         InvokeRepeating("MakeFood", 0f, 0.15f);
     }

@@ -8,8 +8,8 @@ public class GameMananger : MonoBehaviour
 
     public static GameMananger Instance;
 
-    public GameObject EndPanel;
-    public Text title;
+    public StageResultEventChannel stageResultEventChannel;
+
     public bool isPlay = true;
     public bool isGameClear = false;
 
@@ -31,6 +31,7 @@ public class GameMananger : MonoBehaviour
         }
 
     }
+
     private void Start()
     {
         isPlay = true;
@@ -48,11 +49,9 @@ public class GameMananger : MonoBehaviour
             if(timer <= 0 && !isGameClear)
             {
                 isGameClear = true;
-                SoundManager.instance.PlayOneShot(SoundType.ETC, clearAc);
                 Time.timeScale = 0f;
-                title.text = "성공!!";
                 Game.GameManager.instance.OnStageClear();
-                EndPanel.SetActive(true);
+                stageResultEventChannel.Raise(RESULT.Success);
             }
         }
 
@@ -68,8 +67,8 @@ public class GameMananger : MonoBehaviour
 
     public void GameOver()
     {
-  
-        title.text = "실패 ㅠㅠ";
+        stageResultEventChannel.Raise(RESULT.Fail);
+
         isPlay = false;
         anim.SetBool("isDie", true);
 
@@ -88,8 +87,6 @@ public class GameMananger : MonoBehaviour
         {
             PlayerPrefs.SetFloat(key, timer);
         }
-
-        EndPanel.SetActive(true);
     }
 
     void TimeStop()
