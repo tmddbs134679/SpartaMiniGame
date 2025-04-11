@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]private int totalScore;
 
-   // public GameObject EndPanel;
+
 
     public Text totalScoreTxt;
     public Text timeTxt;
     public Text titleTxt;
+
+
     float totalTime = 30.0f;
 
     public AudioClip Clearclip;
@@ -43,8 +45,8 @@ public class GameManager : MonoBehaviour
         {
             totalTime = 0;
             titleTxt.text = "실패ㅠㅠ";
-            //UIManager.instance.ShowGameUI();
-            //EndPanel.SetActive(true);
+            UIManager.instance.ShowGameUI(RESULT.Fail);
+
             Time.timeScale = 0;
         }
 
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
             titleTxt.text = "성공!!";
             SoundManager.instance.PlayOneShot(SoundType.ETC, Clearclip);
             Game.GameManager.instance.OnStageClear();
-           // EndPanel.SetActive(true);
+            UIManager.instance.ShowGameUI(RESULT.Success);
             isGameClear = true;
         }
 
