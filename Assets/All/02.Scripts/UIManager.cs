@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum TYPE
+public enum UITYPE
 {
     Lobby,
     Game
@@ -20,15 +20,16 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    [Header("UI Setting")]
     public GameObject GameUI;
     public GameObject EndingUI;
-    private Text title;
-   [SerializeField]private Button lobbyBtn;
-   [SerializeField]private Button retryBtn;
-   [SerializeField]private Button startBtn;
-   [SerializeField] private Button cancleBtn;
+    [SerializeField] private Text title; 
+    [SerializeField]private Button lobbyBtn;
+    [SerializeField]private Button retryBtn;
+    [SerializeField]private Button startBtn;
+    [SerializeField]private Button cancleBtn;
 
-    private string[] result = { "성공!!", "실패ㅠㅠ" };
+    private string[] results = { "성공!!", "실패ㅠㅠ" };
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        //Find 비용 자체가 크고 버튼이 계속 늘어나면 성능이 떨어지기 때문에 나중에 MVC 패턴으로 수정해야 함.
         Transform root = GameUI.transform;
         title = root.Find("GameObject/BackGround/Title[TXT]").GetComponent<Text>();
         startBtn = root.Find("GameObject/BackGround/StartBtn").GetComponent<Button>();
@@ -53,26 +55,47 @@ public class UIManager : MonoBehaviour
     }
     public void ShowGameUI(string gameTitle)
     {
-        GameObject gameui =  Instantiate(GameUI, new Vector2(0,0), Quaternion.identity);
+        SetButtonState(UITYPE.Lobby);
+
         title.text = gameTitle;
+        GameObject gameui =  Instantiate(GameUI, new Vector2(0,0), Quaternion.identity);
+     
     }
 
-    public void ShowGameUI(TYPE tpye, RESULT result)
+    public void ShowGameUI(RESULT result)
     {
-        GameObject gameui = Instantiate(GameUI, new Vector2(0, 0), Quaternion.identity);
+        SetButtonState(UITYPE.Game);
 
-
-        if (tpye == TYPE.Game)
+        if (result == RESULT.Success)
         {
-
+            title.text = results[0];
+        }
+        else
+        {
+            title.text = results[1];
         }
 
+        GameObject gameui = Instantiate(GameUI, new Vector2(0, 0), Quaternion.identity);
     }
 
 
     public void ShowEndingUI()
     {
         EndingUI.SetActive(true);
+    }
+
+    public void SetButtonState(UITYPE type)
+    {
+        bool isactive = true;
+
+        if(type == UITYPE.Lobby)
+            isactive = false;
+        else
+            isactive = true;
+
+        startBtn.gameObject.SetActive(!isactive);
+        retryBtn.gameObject.SetActive(isactive);
+        lobbyBtn.gameObject.SetActive(isactive);
     }
 
 }
