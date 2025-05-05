@@ -7,17 +7,22 @@
 단순히 개별 미니게임 제작에 그치지 않고, 이를 하나의 흐름 속에 녹여 사용자에게 **연속적인 플레이 경험**을 제공하는 것이 특징입니다.
 
 ---
-## 🎮 게임 화면
+## 🎮 게임 화면 미리보기
 
-<p>
-  <img src="Images/GameStart.png" width="200"/>
-  <img src="Images/Lobby.png" width="200"/>
-  <img src="Images/Stage1.png" width="200"/>
-  <img src="Images/Stage2.png" width="200"/>
-  <img src="Images/Stage3.png" width="200"/>
-  <img src="Images/Stage4.png" width="200"/>
-  <img src="Images/Ending.png" width="200"/>
-</p>
+<table>
+  <tr>
+    <td><img src="Images/GameStart.png" width="180"></td>
+    <td><img src="Images/Lobby.png" width="180"></td>
+    <td><img src="Images/Stage1.png" width="180"></td>
+    <td><img src="Images/Stage2.png" width="180"></td>
+  </tr>
+  <tr>
+    <td><img src="Images/Stage3.png" width="180"></td>
+    <td><img src="Images/Stage4.png" width="180"></td>
+    <td><img src="Images/Ending.png" width="180"></td>
+  </tr>
+</table>
+
 
 ## 📌 시연 영상
 
