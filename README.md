@@ -7,6 +7,16 @@
 단순히 개별 미니게임 제작에 그치지 않고, 이를 하나의 흐름 속에 녹여 사용자에게 **연속적인 플레이 경험**을 제공하는 것이 특징입니다.
 
 ---
+## 🎮 게임 화면
+
+<p>
+  <img src="images/Stage1.png" width="200"/>
+  <img src="images/Stage2.png" width="200"/>
+  <img src="images/Stage3.png" width="200"/>
+  <img src="images/Stage4.png" width="200"/>
+  <img src="images/Start.png" width="200"/>
+  <img src="images/End.png" width="200"/>
+</p>
 
 ## 📌 시연 영상
 
