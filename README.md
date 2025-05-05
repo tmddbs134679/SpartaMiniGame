@@ -10,13 +10,13 @@
 ## 🎮 게임 화면
 
 <p>
-  <img src="images/GameStart.png" width="200"/>
-  <img src="images/Lobby.png" width="200"/>
-  <img src="images/Stage1.png" width="200"/>
-  <img src="images/Stage2.png" width="200"/>
-  <img src="images/Stage3.png" width="200"/>
-  <img src="images/Stage4.png" width="200"/>
-  <img src="images/Ending.png" width="200"/>
+  <img src="Images/GameStart.png" width="200"/>
+  <img src="Images/Lobby.png" width="200"/>
+  <img src="Images/Stage1.png" width="200"/>
+  <img src="Images/Stage2.png" width="200"/>
+  <img src="Images/Stage3.png" width="200"/>
+  <img src="Images/Stage4.png" width="200"/>
+  <img src="Images/Ending.png" width="200"/>
 </p>
 
 ## 📌 시연 영상
