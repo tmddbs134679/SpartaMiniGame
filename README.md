@@ -8,20 +8,8 @@
 
 ---
 ## 🎮 게임 화면 미리보기
+ <td><img src="Images/gif01.gif" width="700"></td>
 
-<table>
-  <tr>
-    <td><img src="Images/GameStart.png" width="180"></td>
-    <td><img src="Images/Lobby.png" width="180"></td>
-    <td><img src="Images/Stage1.png" width="180"></td>
-    <td><img src="Images/Stage2.png" width="180"></td>
-  </tr>
-  <tr>
-    <td><img src="Images/Stage3.png" width="180"></td>
-    <td><img src="Images/Stage4.png" width="180"></td>
-    <td><img src="Images/Ending.png" width="180"></td>
-  </tr>
-</table>
 
 
 ## 📌 시연 영상
