@@ -14,7 +14,7 @@
 
 ## 📌 시연 영상
 
-[시연 영상 보러가기](https://www.youtube.com/watch?v=iigXHU1XzOI)
+[유튜브](https://www.youtube.com/watch?v=iigXHU1XzOI)
 
 ---
 
